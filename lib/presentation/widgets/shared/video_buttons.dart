@@ -1,6 +1,7 @@
 
 
  import 'package:flutter/material.dart';
+import 'package:tiktok/config/helpers/human_formats.dart';
 import 'package:tiktok/domain/entities/video_post.dart';
 
  class VideoButtons extends StatelessWidget {
@@ -36,8 +37,8 @@ class _CustomIconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        IconButton(onPressed: () {}, icon: Icon(iconData, color: color,)),
-        Text('$value')
+        IconButton(onPressed: () {}, icon: Icon(iconData, color: color, size: 30,)),
+        Text(HumanFormats.humanReadbleNumber(value.toDouble()))
       ],
     );
   }
