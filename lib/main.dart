@@ -13,7 +13,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => DiscoverProvider()),
+        ChangeNotifierProvider(
+          lazy: false, //! Se ejecute enseguida el constructor al iniciar la app, no espera a que se llame 
+          create: (_) => DiscoverProvider()..loadNextPage()),
       ],
       child: MaterialApp(
         title: 'Tok Tik',
