@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok/shared/data/local_video_post.dart';
 import 'package:video_player/video_player.dart';
 
 class FullScreenPlayer extends StatefulWidget {
@@ -53,11 +54,46 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
 
         return AspectRatio(
           aspectRatio: controller.value.aspectRatio,
-          child: VideoPlayer(controller),
+          child: Stack(
+
+            children: [
+              VideoPlayer(controller),
+
+              //Gradiente
+
+              //Texto
+
+              Positioned(
+                bottom: 50,
+                left: 20,
+                child:_VideoCaption(caption: widget.caption)
+              ),
+            ],
+
+          ),
         );
         
 
       },
+    );
+  }
+}
+
+class _VideoCaption extends StatelessWidget {
+
+  final String caption;
+
+  const _VideoCaption({super.key, required this.caption});
+
+  @override
+  Widget build(BuildContext context) {
+
+    final size = MediaQuery.of(context).size;
+    final titleStyle = Theme.of(context).textTheme.titleLarge;
+
+    return SizedBox(
+      width: size.width * 0.6,
+      child: Text( caption, maxLines: 2, style: titleStyle,),
     );
   }
 }
