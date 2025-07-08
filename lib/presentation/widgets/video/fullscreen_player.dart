@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok/presentation/widgets/video/video_background.dart';
 import 'package:tiktok/shared/data/local_video_post.dart';
 import 'package:video_player/video_player.dart';
 
@@ -72,7 +73,7 @@ class _FullScreenPlayerState extends State<FullScreenPlayer> {
                 VideoPlayer(controller),
           
                 //Gradiente
-          
+                VideoBackground(),
                 //Texto
           
                 Positioned(
